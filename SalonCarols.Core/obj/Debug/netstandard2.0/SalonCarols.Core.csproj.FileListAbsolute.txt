@@ -1,0 +1,9 @@
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\bin\Debug\netstandard2.0\SalonCarols.Core.deps.json
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\bin\Debug\netstandard2.0\SalonCarols.Core.dll
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\bin\Debug\netstandard2.0\SalonCarols.Core.pdb
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.csprojAssemblyReference.cache
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.AssemblyInfoInputs.cache
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.AssemblyInfo.cs
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.csproj.CoreCompileInputs.cache
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.dll
+C:\Users\Anyelo Vinzen\source\repos\ApiRestSalonCarols\SalonCarols.Core\obj\Debug\netstandard2.0\SalonCarols.Core.pdb

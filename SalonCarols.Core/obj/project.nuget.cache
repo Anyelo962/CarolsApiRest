@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z7wLAD6jzagNjo09VQqvzGJvbFCsQBe5Vp6fMUK0j2yIEo4GzFvCKS7R+4Bvi8svkAEjFplgVq0SZw6R0By67g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Anyelo Vinzen\\source\\repos\\ApiRestSalonCarols\\SalonCarols.Core\\SalonCarols.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
