@@ -8,7 +8,7 @@ namespace SalonCarols.Core.entities
         public Client()
         {
             ShoppingCart = new HashSet<ShoppingCard>();
-            ProductOrder = new HashSet<OrdenProducto>();
+            ProductOrder = new HashSet<OrderProduct>();
         }
 
         public int IdClient { get; set; }
@@ -24,6 +24,6 @@ namespace SalonCarols.Core.entities
         public virtual Province Province { get; set; }
         public virtual Telephone SmartPhone { get; set; }
         public virtual ICollection<ShoppingCard> ShoppingCart { get; set; }
-        public virtual ICollection<OrdenProducto> ProductOrder { get; set; }
+        public virtual ICollection<OrderProduct> ProductOrder { get; set; }
     }
 }

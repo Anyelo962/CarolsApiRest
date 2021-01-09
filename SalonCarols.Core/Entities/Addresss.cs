@@ -7,7 +7,7 @@ namespace SalonCarols.Core.entities
     {
         public Addresss()
         {
-            OrderProduct = new HashSet<OrdenProducto>();
+            OrderProduct = new HashSet<OrderProduct>();
             Provider = new HashSet<Provider>();
         }
 
@@ -17,7 +17,7 @@ namespace SalonCarols.Core.entities
         public string Surroundings { get; set; }
         public string PostalCode { get; set; }
 
-        public virtual ICollection<OrdenProducto> OrderProduct { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual ICollection<Provider> Provider { get; set; }
     }
 }

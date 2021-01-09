@@ -7,12 +7,12 @@ namespace SalonCarols.Core.entities
     {
         public PaymentMethod()
         {
-            OrderProduct = new HashSet<OrdenProducto>();
+            OrderProduct = new HashSet<OrderProduct>();
         }
 
         public int IdPaymentMethod { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<OrdenProducto> OrderProduct { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace SalonCarols.Core.entities
         public int Amount { get; set; }
         public decimal Price { get; set; }
 
-        public virtual OrdenProducto OrdenProduct { get; set; }
+        public virtual OrderProduct OrdenProduct { get; set; }
         public virtual Product ProductO { get; set; }
     }
 }
