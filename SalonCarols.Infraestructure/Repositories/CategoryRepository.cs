@@ -18,7 +18,7 @@ namespace SalonCarols.Infraestructure.Repositories
         {
             this.carolDBContext = carolDBContext;
         }
-       public async Task<IEnumerable<Categoria>> GetCategories()
+       public async Task<IEnumerable<Category>> GetCategories()
         {
             var categorie = await carolDBContext.Categoria.ToListAsync();
 

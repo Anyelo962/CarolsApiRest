@@ -15,20 +15,20 @@ namespace SalonCarols.Infraestructure.Data
         {
         }
 
-        public virtual DbSet<CarritoCompras> CarritoCompras { get; set; }
-        public virtual DbSet<Categoria> Categoria { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<DetalleOrden> DetalleOrden { get; set; }
-        public virtual DbSet<Direccion> Direccion { get; set; }
-        public virtual DbSet<Empleado> Empleado { get; set; }
-        public virtual DbSet<ImageProductos> ImageProductos { get; set; }
-        public virtual DbSet<MetodoDePago> MetodoDePago { get; set; }
+        public virtual DbSet<ShoppingCard> CarritoCompras { get; set; }
+        public virtual DbSet<Category> Categoria { get; set; }
+        public virtual DbSet<Client> Cliente { get; set; }
+        public virtual DbSet<OrderDetail> DetalleOrden { get; set; }
+        public virtual DbSet<Addresss> Direccion { get; set; }
+        public virtual DbSet<Employee> Empleado { get; set; }
+        public virtual DbSet<ImageProduct> ImageProductos { get; set; }
+        public virtual DbSet<PaymentMethod> MetodoDePago { get; set; }
         public virtual DbSet<OrdenProducto> OrdenProducto { get; set; }
-        public virtual DbSet<Producto> Producto { get; set; }
-        public virtual DbSet<Proveedor> Proveedor { get; set; }
-        public virtual DbSet<Provincia> Provincia { get; set; }
-        public virtual DbSet<RolEmpleado> RolEmpleado { get; set; }
-        public virtual DbSet<Telefono> Telefono { get; set; }
+        public virtual DbSet<Product> Producto { get; set; }
+        public virtual DbSet<Provider> Proveedor { get; set; }
+        public virtual DbSet<Province> Provincia { get; set; }
+        public virtual DbSet<RolEmployee> RolEmpleado { get; set; }
+        public virtual DbSet<Telephone> Telefono { get; set; }
 
 //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //        {
@@ -41,171 +41,171 @@ namespace SalonCarols.Infraestructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CarritoCompras>(entity =>
+            modelBuilder.Entity<ShoppingCard>(entity =>
             {
-                entity.HasKey(e => e.IdCarrito);
+                entity.HasKey(e => e.IdCart);
 
-                entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.CarritoCompras)
-                    .HasForeignKey(d => d.IdCliente)
+                entity.HasOne(d => d.client)
+                    .WithMany(p => p.ShoppingCart)
+                    .HasForeignKey(d => d.IdClient)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CarritoCompras_Cliente");
 
-                entity.HasOne(d => d.IdProductoNavigation)
-                    .WithMany(p => p.CarritoCompras)
-                    .HasForeignKey(d => d.IdProducto)
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ShoppingCart)
+                    .HasForeignKey(d => d.IdProduct)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CarritoCompras_Producto");
             });
 
-            modelBuilder.Entity<Categoria>(entity =>
+            modelBuilder.Entity<Category>(entity =>
             {
-                entity.HasKey(e => e.IdCategoria)
+                entity.HasKey(e => e.IdCategory)
                     .HasName("Pk_IdCategoria");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.NameProduct)
                     .HasMaxLength(30)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Cliente>(entity =>
+            modelBuilder.Entity<Client>(entity =>
             {
-                entity.HasKey(e => e.IdCliente)
+                entity.HasKey(e => e.IdClient)
                     .HasName("Pk_IdCliente");
 
-                entity.Property(e => e.Apellido)
+                entity.Property(e => e.LastName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contrasena)
+                entity.Property(e => e.Password)
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CorreoElectronico)
+                entity.Property(e => e.Email)
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
+                entity.Property(e => e.CreationDate).HasColumnType("datetime");
 
-                entity.Property(e => e.IdProvincia).HasColumnName("Id_Provincia");
+                entity.Property(e => e.IdProvince).HasColumnName("Id_Provincia");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .HasMaxLength(32)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Sexo)
+                entity.Property(e => e.Sex)
                     .HasMaxLength(12)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdProvinciaNavigation)
-                    .WithMany(p => p.Cliente)
-                    .HasForeignKey(d => d.IdProvincia)
+                entity.HasOne(d => d.Province)
+                    .WithMany(p => p.Client)
+                    .HasForeignKey(d => d.IdProvince)
                     .HasConstraintName("Fk_Id_Provincia");
 
-                entity.HasOne(d => d.IdSmartPhoneNavigation)
-                    .WithMany(p => p.Cliente)
+                entity.HasOne(d => d.SmartPhone)
+                    .WithMany(p => p.Client)
                     .HasForeignKey(d => d.IdSmartPhone)
                     .HasConstraintName("Fk_IdSmartPhone");
             });
 
-            modelBuilder.Entity<DetalleOrden>(entity =>
+            modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.Property(e => e.Precio).HasColumnType("money");
+                entity.Property(e => e.Price).HasColumnType("money");
 
-                entity.HasOne(d => d.IdOrdenProductoNavigation)
+                entity.HasOne(d => d.OrdenProduct)
                     .WithMany(p => p.DetalleOrden)
-                    .HasForeignKey(d => d.IdOrdenProducto)
+                    .HasForeignKey(d => d.IdProductOrder)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DetalleOrden_OrdenProducto");
 
-                entity.HasOne(d => d.IdProductoONavigation)
-                    .WithMany(p => p.DetalleOrden)
-                    .HasForeignKey(d => d.IdProductoO)
+                entity.HasOne(d => d.ProductO)
+                    .WithMany(p => p.OrderDetail)
+                    .HasForeignKey(d => d.IdProductO)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DetalleOrden_Producto");
             });
 
-            modelBuilder.Entity<Direccion>(entity =>
+            modelBuilder.Entity<Addresss>(entity =>
             {
-                entity.HasKey(e => e.IdDireccion)
+                entity.HasKey(e => e.IdAddress)
                     .HasName("Pk_IdDireccion");
 
-                entity.Property(e => e.Barrio)
+                entity.Property(e => e.Neighborhood)
                     .HasMaxLength(60)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Calle)
+                entity.Property(e => e.Street)
                     .HasMaxLength(60)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CodigoPostal)
+                entity.Property(e => e.PostalCode)
                     .HasMaxLength(8)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Sector)
+                entity.Property(e => e.Surroundings)
                     .HasMaxLength(60)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Empleado>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(e => e.IdEmpleado);
+                entity.HasKey(e => e.IdEmployee);
 
-                entity.Property(e => e.Apellido)
+                entity.Property(e => e.LastName)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Cedula)
+                entity.Property(e => e.IdentificationCard)
                     .IsRequired()
                     .HasMaxLength(13)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contrasena)
+                entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CorreoElectronico)
+                entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IdDireccionEmpleado)
+                entity.Property(e => e.IdEmployeeAddress)
                     .IsRequired()
                     .HasColumnName("IdDireccion_Empleado")
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IdProvinciaEmpleado).HasColumnName("IdProvincia_Empleado");
+                entity.Property(e => e.IdProvinceEmployee).HasColumnName("IdProvincia_Empleado");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ImageProductos>(entity =>
+            modelBuilder.Entity<ImageProduct>(entity =>
             {
                 entity.HasKey(e => e.IdImage);
 
-                entity.Property(e => e.IdProductoImagen).HasColumnName("idProductoImagen");
+                entity.Property(e => e.IdProductImage).HasColumnName("idProductoImagen");
 
                 entity.Property(e => e.Image)
                     .HasColumnName("image")
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdProductoImagenNavigation)
-                    .WithMany(p => p.ImageProductos)
-                    .HasForeignKey(d => d.IdProductoImagen)
+                entity.HasOne(d => d.ProductImage)
+                    .WithMany(p => p.ImageProducts)
+                    .HasForeignKey(d => d.IdProductImage)
                     .HasConstraintName("FK_ImageProductos_Producto");
             });
 
-            modelBuilder.Entity<MetodoDePago>(entity =>
+            modelBuilder.Entity<PaymentMethod>(entity =>
             {
-                entity.HasKey(e => e.IdMetodoPago);
+                entity.HasKey(e => e.IdPaymentMethod);
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(15)
                     .IsUnicode(false);
@@ -218,114 +218,114 @@ namespace SalonCarols.Infraestructure.Data
                 entity.Property(e => e.Total).HasColumnType("money");
 
                 entity.HasOne(d => d.IdClienteOrdenNavigation)
-                    .WithMany(p => p.OrdenProducto)
+                    .WithMany(p => p.ProductOrder)
                     .HasForeignKey(d => d.IdClienteOrden)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrdenProducto_Cliente");
 
                 entity.HasOne(d => d.IdClienteOrden1)
-                    .WithMany(p => p.OrdenProducto)
+                    .WithMany(p => p.OrderProduct)
                     .HasForeignKey(d => d.IdClienteOrden)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrdenProducto_MetodoDePago");
 
                 entity.HasOne(d => d.IdDireccionOrdenNavigation)
-                    .WithMany(p => p.OrdenProducto)
+                    .WithMany(p => p.OrderProduct)
                     .HasForeignKey(d => d.IdDireccionOrden)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrdenProducto_Direccion");
             });
 
-            modelBuilder.Entity<Producto>(entity =>
+            modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasKey(e => e.IdProducto)
+                entity.HasKey(e => e.IdProduct)
                     .HasName("Pk_IdProducto");
 
-                entity.Property(e => e.Descripcion)
+                entity.Property(e => e.Description)
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IdCategoriaP).HasColumnName("idCategoriaP");
+                entity.Property(e => e.IdCategoryP).HasColumnName("idCategoriaP");
 
-                entity.Property(e => e.IdProveedor).HasColumnName("Id_Proveedor");
+                entity.Property(e => e.IdProvider).HasColumnName("Id_Proveedor");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Precio).HasColumnType("money");
+                entity.Property(e => e.Price).HasColumnType("money");
 
                 entity.Property(e => e.Total).HasColumnType("money");
 
-                entity.HasOne(d => d.IdCategoriaPNavigation)
-                    .WithMany(p => p.Producto)
-                    .HasForeignKey(d => d.IdCategoriaP)
+                entity.HasOne(d => d.CategoryP)
+                    .WithMany(p => p.Product)
+                    .HasForeignKey(d => d.IdCategoryP)
                     .HasConstraintName("Fk_IdCategoria");
 
-                entity.HasOne(d => d.IdProveedorNavigation)
-                    .WithMany(p => p.Producto)
-                    .HasForeignKey(d => d.IdProveedor)
+                entity.HasOne(d => d.ProviderP)
+                    .WithMany(p => p.Product)
+                    .HasForeignKey(d => d.IdProvider)
                     .HasConstraintName("FK_Producto_Proveedor");
             });
 
-            modelBuilder.Entity<Proveedor>(entity =>
+            modelBuilder.Entity<Provider>(entity =>
             {
-                entity.HasKey(e => e.IdProveedor)
+                entity.HasKey(e => e.IdProvider)
                     .HasName("Pk_IdProveedor");
 
-                entity.Property(e => e.Apellido)
+                entity.Property(e => e.LastName)
                     .HasMaxLength(60)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contrasena)
+                entity.Property(e => e.Password)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CorreoElectronico)
+                entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IdDireccion).HasColumnName("Id_Direccion");
+                entity.Property(e => e.IdAddress).HasColumnName("Id_Direccion");
 
-                entity.Property(e => e.IdProvincia).HasColumnName("Id_Provincia");
+                entity.Property(e => e.IdProvince).HasColumnName("Id_Provincia");
 
-                entity.Property(e => e.IdTelefono).HasColumnName("Id_Telefono");
+                entity.Property(e => e.IdTelephone).HasColumnName("Id_Telefono");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Sexo)
+                entity.Property(e => e.Sex)
                     .HasMaxLength(12)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdDireccionNavigation)
-                    .WithMany(p => p.Proveedor)
-                    .HasForeignKey(d => d.IdDireccion)
+                entity.HasOne(d => d.IdAddressN)
+                    .WithMany(p => p.Provider)
+                    .HasForeignKey(d => d.IdAddress)
                     .HasConstraintName("Fk_Id_Direccion");
 
-                entity.HasOne(d => d.IdProvinciaNavigation)
-                    .WithMany(p => p.Proveedor)
-                    .HasForeignKey(d => d.IdProvincia)
+                entity.HasOne(d => d.IdProvinceN)
+                    .WithMany(p => p.Provider)
+                    .HasForeignKey(d => d.IdProvince)
                     .HasConstraintName("Fk_IdProvincia");
 
-                entity.HasOne(d => d.IdTelefonoNavigation)
-                    .WithMany(p => p.Proveedor)
-                    .HasForeignKey(d => d.IdTelefono)
+                entity.HasOne(d => d.IdTelephoneN)
+                    .WithMany(p => p.Provider)
+                    .HasForeignKey(d => d.IdTelephone)
                     .HasConstraintName("Fk_IdTelefono");
             });
 
-            modelBuilder.Entity<Provincia>(entity =>
+            modelBuilder.Entity<Province>(entity =>
             {
-                entity.HasKey(e => e.IdProvincia)
+                entity.HasKey(e => e.IdProvince)
                     .HasName("Pk_IdProvincia");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<RolEmpleado>(entity =>
+            modelBuilder.Entity<RolEmployee>(entity =>
             {
                 entity.HasKey(e => e.IdRol)
                     .HasName("Pk_idRol");
@@ -334,29 +334,29 @@ namespace SalonCarols.Infraestructure.Data
 
                 entity.Property(e => e.IdRol).HasColumnName("idRol");
 
-                entity.Property(e => e.IdRolEmpleado).HasColumnName("idRolEmpleado");
+                entity.Property(e => e.IdRolEmployee).HasColumnName("idRolEmpleado");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.Name)
                     .HasColumnName("nombre")
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdRolEmpleadoNavigation)
-                    .WithMany(p => p.RolEmpleado)
-                    .HasForeignKey(d => d.IdRolEmpleado)
+                entity.HasOne(d => d.IdRolEmployeeN)
+                    .WithMany(p => p.RolEmployee)
+                    .HasForeignKey(d => d.IdRolEmployee)
                     .HasConstraintName("Fk_idRolEmpleado");
             });
 
-            modelBuilder.Entity<Telefono>(entity =>
+            modelBuilder.Entity<Telephone>(entity =>
             {
-                entity.HasKey(e => e.IdTelefono)
+                entity.HasKey(e => e.IdTelephone)
                     .HasName("Pk_IdTelefono");
 
-                entity.Property(e => e.NumeroTelefonico)
+                entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(14)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TelefonoCelular)
+                entity.Property(e => e.CellPhone)
                     .HasMaxLength(14)
                     .IsUnicode(false);
             });

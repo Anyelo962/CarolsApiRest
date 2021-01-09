@@ -7,7 +7,7 @@ namespace SalonCarols.Core.entities
     {
         public OrdenProducto()
         {
-            DetalleOrden = new HashSet<DetalleOrden>();
+            DetalleOrden = new HashSet<OrderDetail>();
         }
 
         public int IdOrden { get; set; }
@@ -16,9 +16,9 @@ namespace SalonCarols.Core.entities
         public decimal Total { get; set; }
         public int IdDireccionOrden { get; set; }
 
-        public virtual MetodoDePago IdClienteOrden1 { get; set; }
-        public virtual Cliente IdClienteOrdenNavigation { get; set; }
-        public virtual Direccion IdDireccionOrdenNavigation { get; set; }
-        public virtual ICollection<DetalleOrden> DetalleOrden { get; set; }
+        public virtual PaymentMethod IdClienteOrden1 { get; set; }
+        public virtual Client IdClienteOrdenNavigation { get; set; }
+        public virtual Addresss IdDireccionOrdenNavigation { get; set; }
+        public virtual ICollection<OrderDetail> DetalleOrden { get; set; }
     }
 }

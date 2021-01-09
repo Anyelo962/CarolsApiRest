@@ -6,6 +6,6 @@ namespace SalonCarols.Core.Interfaces
 {
     public interface ICategoryRepository
     {
-        Task<IEnumerable<Categoria>> GetCategories();
+        Task<IEnumerable<Category>> GetCategories();
     }
 }
