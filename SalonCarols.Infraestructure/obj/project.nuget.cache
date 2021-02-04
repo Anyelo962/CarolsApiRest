@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AiqaqguQgGDy/ESDlrTYC2/wLCZ5jsPmCqQIPFPiguqVP1oipUGaNth8sApaDkDjUHIYua/vCY3rZ3cCHU1SDg==",
+  "dgSpecHash": "pNBFCaRWkVue7B408MIL+cDU4oH2nFlCXYFVpR25pQdc2wSU1O2mZ4dCSEjsOXn+fkX0E6kmkH+Mz19xtETymA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anyelo Vinzen\\source\\repos\\ApiRestSalonCarols\\SalonCarols.Infraestructure\\SalonCarols.Infraestructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -79,8 +81,8 @@
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
-    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Anyelo Vinzen\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",

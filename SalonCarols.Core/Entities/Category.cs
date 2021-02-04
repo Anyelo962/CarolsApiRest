@@ -1,9 +1,9 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 
 namespace SalonCarols.Core.entities
 {
-    public partial class Category
+    public class Category
     {
         public Category()
         {

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,13 @@ namespace ApiRestCarols
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
+            // esta linea es para agregar el newtonsof
+            services.AddControllers().AddNewtonsoftJson(option =>
+            {
+                option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddDbContext<SalonCarolDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CarolsDB")));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
 

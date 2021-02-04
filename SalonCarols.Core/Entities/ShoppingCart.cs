@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SalonCarols.Core.entities
 {
-    public partial class ShoppingCard
+    public partial class ShoppingCart
     {
         public int IdCart { get; set; }
         public int IdProduct { get; set; }

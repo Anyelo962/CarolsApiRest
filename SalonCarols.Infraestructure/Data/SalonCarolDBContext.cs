@@ -57,6 +57,7 @@ namespace SalonCarols.Infraestructure.Data
             modelBuilder.ApplyConfiguration(new ProviderConfiguration());
             modelBuilder.ApplyConfiguration(new ProvinceConfiguration());
             modelBuilder.ApplyConfiguration(new TelephoneConfiguration());
+            modelBuilder.ApplyConfiguration(new RolEmployeeConfiguration());
            // OnModelCreatingPartial(modelBuilder);
         }
 

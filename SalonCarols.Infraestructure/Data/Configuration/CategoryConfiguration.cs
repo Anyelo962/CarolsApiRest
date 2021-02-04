@@ -13,9 +13,9 @@ namespace SalonCarols.Infraestructure.Data.Configuration
         {
              builder.HasKey(e => e.IdCategory)
                     .HasName("Pk_IdCategoria");
-                builder.Property(e => e.IdCategory)
-                    .HasColumnName("IdCategoria")
-                    .ValueGeneratedNever();
+            builder.Property(e => e.IdCategory)
+                .HasColumnName("IdCategoria");
+                   // .ValueGeneratedNever();
 
                 builder.Property(e => e.NameProduct)
                     .HasColumnName("Nombre")

@@ -11,20 +11,22 @@ namespace SalonCarols.Infraestructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<RolEmployee> builder)
         {
+            builder.ToTable("rolEmpleado");
+
             builder.HasKey(e => e.IdRol)
                       .HasName("Pk_idRol");
 
-            builder.ToTable("rolEmpleado");
-
-            builder.Property(e => e.IdRol).HasColumnName("idRol");
-
-            builder.Property(e => e.IdRolEmployee).HasColumnName("idRolEmpleado");
+            builder.Property(e => e.IdRol).
+                 HasColumnName("idRol")
+                .ValueGeneratedNever();
 
             builder.Property(e => e.Name)
                 .HasColumnName("nombre")
                 .HasMaxLength(30)
                 .IsUnicode(false);
 
+                builder.Property(e => e.IdRolEmployee).
+                     HasColumnName("idRolEmpleado");
             builder.HasOne(d => d.IdRolEmployeeN)
                 .WithMany(p => p.RolEmployee)
                 .HasForeignKey(d => d.IdRolEmployee)
